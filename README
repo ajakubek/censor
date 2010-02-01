@@ -1,0 +1,50 @@
+Censor
+======
+
+I. Przeznaczenie
+Censor to prosty skrypt JS, którego celem jest modyfikacja wyglądu strony poprzez zakrycie losowych wyrazów czarnymi paskami. Dodatkowo na początek strony wstawiany jest element div z linkiem umożliwiającym użytkownikowi wyłączenie 'cenzury'. Wykonanie tej akcji może również skutkować otwarciem w oknie popup dowolnej strony (domyślnie jest to http://podziekujpremierowi.pl). Domyślnie cenzura pojawi się raz dziennie po wejściu na daną stronę (po wyłączeniu cenzury użytkownik otrzyma cookie blokujące działanie skryptu na czas 1 doby).
+
+Skrypt powstał jako forma sprzeciwu wobec ustawy zaproponowanej przez rząd Donalda Tuska, wprowadzającej możliwość blokowania stron internetowych. Aby umożliwić szerokiej grupie osób przyłączenie się do protestu, kod źródłowy jest udostępniony na bardzo liberalnej licencji MIT. Umożliwia ona kopiowanie, redystrybucję i modyfikowanie skryptu w dowolnych celach (również komercyjnych).
+Zachęcamy wszystkie osoby, którym zależy na wolności polskiej sieci, do wzięcia udziału w naszej akcji i zamieszczenia skryptu na swojej stronie.
+
+II. Kompatybilność
+Działanie skryptu zostało zweryfikowane na następujących przeglądarkach:
+- Firefox 3.5
+- Chromium 4.0
+- IE 8
+- Opera 10
+
+III. Integracja skryptu ze stroną
+1. Test (opcjonalny)
+Przed umieszczeniem skryptu na stronie, zalecane jest przetestowanie jego działania. Dołożyliśmy wszelkich starań aby skrypt działał poprawnie i nie naruszał układu strony (rzecz jasna, poza wstawianiem pasków z cenzurą). Pomimo tego udostępniamy jednak specjalną wersję skryptu, która umożliwia przetestowanie wyglądu strony po 'ocenzurowaniu', bez fizycznej ingerencji w jej kod na serwerze.
+Aby przetestować działanie skryptu, należy użyć przeglądarki Mozilla Firefox z zainstalowanym rozszerzeniem Greasemonkey (https://addons.mozilla.org/pl/firefox/addon/748). Po włączeniu rozszerzenia, należy zainstalować skrypt poprzez otwarcie w przeglądarce URL http://github.com/ajakubek/censor/raw/master/greasemonkey/censor.user.js Przeglądarka powinna zapytać o potwierdzenie instalacji. Po ukończeniu operacji wszystkie otwierane strony będą przed wyświetleniem 'cenzurowane' przez skrypt. Nie wymaga to jakiejkolwiek ingerencji w kod strony na serwerze. Aby zakończyć działanie skryptu, należy usunąć go z listy skryptów Greasemonkey, lub wyłączyć to rozszerzenie.
+
+2. Instalacja
+Pierwszym krokiem powinno być skopiowanie odpowiedniej wersji skryptu na serwer. W katalogu 'js' pakietu (lub pod adresem http://github.com/ajakubek/censor/tree/master/js/) znajdują się dwie wersje skryptu, różniące się użytym kodowaniem znaków. Należy wybrać wersję dopasowaną do kodowania strony, na której osadzony będzie skrypt i zuploadować odpowiedni plik .js na serwer ze stroną.
+Następnie, w celu włączenia skryptu na stronie, należy dodać go w standardowy sposób w sekcji <head></head> w kodzie HTML.
+Oto przykład:
+<head>
+   ...
+   <script src="censor.utf-8.js" type="text/javascript"></script>
+   ...
+</head>
+Po wykonaniu tych czynności, strona powinna być już ocenzurowana.
+
+3. Dodatkowa konfiguracja (opcjonalna)
+Możliwe jest spersonalizowanie działania skryptu poprzez modyfikację zmiennych znajdujących się na początku pliku censor.<kodowanie>.js.
+Oto dostępne zmienne, wraz z opisem ich znaczenia:
+- FREQUENCY - częstotliwość występowania cenzury (prawdopodobieństwo ocenzurowania wyrazu - liczba w zakresie 0 do 1).
+- MIN_CENSORED_LENGTH - minimalna długość cenzurowanego ciągu liter
+- INFO_DIV_CUSTOM_STYLESHEET - klasa CSS, która zostanie zaaplikowana do warstwy (element div) z linkiem wyłączającym cenzurę
+- INFO_LINK_CUSTOM_STYLESHEET - klasa CSS, która zostanie zaaplikowana do linka (element a) wyłączającego cenzurę
+- INFO_LINK_TEXT - tekst wyświetlany w linku
+- INFO_LINK_HREF - strona otwierana w popupie po kliknięciu w link usuwajacy cenzurę (jeśli parametr będzie pusty, nie zostanie wyświetlona żadna strona)
+- SHOW_ONCE - czy pokazać cenzurę po kolejnych wejściach na stronę (true lub false)
+- DAYS_TO_EXPIRE - jeśli parametr SHOW_ONCE ustawiony jest na true, DAYS_TO_EXPIRE określa ilość dni, po których cenzura pojawi się ponownie (jest to czas wygasania cookie blokującego cenzurę strony)
+- CENSOR_ROOT_CLASS_FILTER - umożliwia włączenie cenzury tylko w określonych fragmentach strony. Będzie ona aktywna tylko w elementach HTML, które są posiadają rodzica z przypisaną klasa CSS określoną w parametrze CENSOR_ROOT_CLASS_FILTER.
+- CENSOR_SPAN_CLASS - klasa przypisywana do każdego 'paska' cenzury nakładanego na tekst
+- CENSOR_INFO_DIV_ID - klasa przypisywana do warstwy (div) z linkiem wyłączającym cenzurę
+- CENSOR_COOKIE_NAME - identyfikator cookie służacego do czasowego blokowania cenzury
+
+IV. Licencja
+Skrypt rozpowszechniany jest na licencji MIT (http://www.opensource.org/licenses/mit-license.php).
