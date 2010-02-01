@@ -20,7 +20,10 @@ Przed umieszczeniem skryptu na stronie, zalecane jest przetestowanie jego dział
 Aby przetestować działanie skryptu, należy użyć przeglądarki Mozilla Firefox z zainstalowanym rozszerzeniem Greasemonkey (https://addons.mozilla.org/pl/firefox/addon/748). Po włączeniu rozszerzenia, należy zainstalować skrypt poprzez otwarcie w przeglądarce URL http://github.com/ajakubek/censor/raw/master/greasemonkey/censor.user.js Przeglądarka powinna zapytać o potwierdzenie instalacji. Po ukończeniu operacji wszystkie otwierane strony będą przed wyświetleniem 'cenzurowane' przez skrypt. Nie wymaga to jakiejkolwiek ingerencji w kod strony na serwerze. Aby zakończyć działanie skryptu, należy usunąć go z listy skryptów Greasemonkey, lub wyłączyć to rozszerzenie.
 
 2. Instalacja
-Pierwszym krokiem powinno być skopiowanie odpowiedniej wersji skryptu na serwer. W katalogu 'js' pakietu (lub pod adresem http://github.com/ajakubek/censor/tree/master/js/) znajdują się dwie wersje skryptu, różniące się użytym kodowaniem znaków. Należy wybrać wersję dopasowaną do kodowania strony, na której osadzony będzie skrypt i zuploadować odpowiedni plik .js na serwer ze stroną.
+Pierwszym krokiem powinno być skopiowanie odpowiedniej wersji skryptu na serwer. W katalogu 'js' pakietu (pod adresem http://github.com/ajakubek/censor/tree/master/js/) znajdują się dwie wersje skryptu, różniące się użytym kodowaniem znaków. Oto linki do plików:
+- kodowanie UTF-8 - http://github.com/ajakubek/censor/raw/master/js/censor.utf-8.js
+- kodowanie ISO-8859-2 - http://github.com/ajakubek/censor/raw/master/js/censor.iso-8859-2.js
+Należy wybrać wersję dopasowaną do kodowania strony, na której osadzony będzie skrypt i zuploadować plik na serwer ze stroną.
 Następnie, w celu włączenia skryptu na stronie, należy dodać go w standardowy sposób w sekcji <head></head> w kodzie HTML.
 Oto przykład:
 <head>
@@ -28,7 +31,7 @@ Oto przykład:
    <script src="censor.utf-8.js" type="text/javascript"></script>
    ...
 </head>
-Po wykonaniu tych czynności, strona powinna być już ocenzurowana.
+Po wykonaniu tych czynności, strona powinna być już 'ocenzurowana'.
 
 3. Dodatkowa konfiguracja (opcjonalna)
 Możliwe jest spersonalizowanie działania skryptu poprzez modyfikację zmiennych znajdujących się na początku pliku censor.<kodowanie>.js.
