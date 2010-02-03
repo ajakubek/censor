@@ -175,6 +175,8 @@
 				return;
 			createCookie(CENSOR_COOKIE_NAME, true, DAYS_TO_EXPIRE);
 		}
+		else
+			eraseCookie(CENSOR_COOKIE_NAME);
 		censorDocument(window.document);
 		addInfoLayer();
 	}
