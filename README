@@ -43,7 +43,7 @@ Oto dostępne zmienne, wraz z opisem ich znaczenia:
 - INFO_LINK_TEXT - tekst wyświetlany w linku
 - INFO_LINK_HREF - strona otwierana w popupie po kliknięciu w link usuwajacy cenzurę (jeśli parametr będzie pusty, nie zostanie wyświetlona żadna strona)
 - SHOW_ONCE - czy pokazać cenzurę po kolejnych wejściach na stronę (true lub false)
-- DAYS_TO_EXPIRE - jeśli parametr SHOW_ONCE ustawiony jest na true, DAYS_TO_EXPIRE określa ilość dni, po których cenzura pojawi się ponownie (jest to czas wygasania cookie blokującego cenzurę strony)
+- DAYS_TO_EXPIRE - jeśli parametr SHOW_ONCE ustawiony jest na true, DAYS_TO_EXPIRE określa ilość dni, po których cenzura pojawi się ponownie (jest to czas wygasania cookie blokującego cenzurę strony). Parametr ten może być ułamkiem. Przykładowo, po ustawieniu wartości 0.000694, cenzura będzie pojawiać się na stronie co 60 sekund (0.000694 to wartość, którą uzyskamy dzieląc 60 przez 86400, czyli ilość sekund w dobie).
 - CENSOR_ROOT_CLASS_FILTER - umożliwia włączenie cenzury tylko w określonych fragmentach strony. Będzie ona aktywna tylko w elementach HTML, które są posiadają rodzica z przypisaną klasa CSS określoną w parametrze CENSOR_ROOT_CLASS_FILTER.
 - CENSOR_SPAN_CLASS - klasa przypisywana do każdego 'paska' cenzury nakładanego na tekst
 - CENSOR_INFO_DIV_ID - klasa przypisywana do warstwy (div) z linkiem wyłączającym cenzurę
