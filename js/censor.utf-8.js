@@ -11,7 +11,7 @@
 	var INFO_DIV_CUSTOM_STYLESHEET = '';
 	var INFO_LINK_CUSTOM_STYLESHEET = '';
 	var INFO_LINK_TEXT = 'Strona ocenzurowana prewencyjnie. Podziękuj premierowi!';
-	var INFO_LINK_HREF = 'http://podziekujpremierowi.pl/';
+	var INFO_LINK_HREF = 'http://stop-cenzurze.pl/';
 	var SHOW_ONCE = true;
 	var DAYS_TO_EXPIRE = 1;
 	var CENSOR_ROOT_CLASS_FILTER = '';

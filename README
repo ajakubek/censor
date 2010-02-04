@@ -2,7 +2,7 @@ Censor
 ======
 
 I. Przeznaczenie
-Censor to prosty skrypt JS, którego celem jest modyfikacja wyglądu strony poprzez zakrycie losowych wyrazów czarnymi paskami. Dodatkowo na początek strony wstawiany jest element div z linkiem umożliwiającym użytkownikowi wyłączenie 'cenzury'. Wykonanie tej akcji może również skutkować otwarciem w oknie popup dowolnej strony (domyślnie jest to http://podziekujpremierowi.pl). Domyślnie cenzura pojawi się raz dziennie po wejściu na daną stronę (po wyłączeniu cenzury użytkownik otrzyma cookie blokujące działanie skryptu na czas 1 doby).
+Censor to prosty skrypt JS, którego celem jest modyfikacja wyglądu strony poprzez zakrycie losowych wyrazów czarnymi paskami. Dodatkowo na początek strony wstawiany jest element div z linkiem umożliwiającym użytkownikowi wyłączenie 'cenzury'. Wykonanie tej akcji może również skutkować otwarciem w oknie popup dowolnej strony (domyślnie jest to http://stop-cenzurze.pl). Domyślnie cenzura pojawi się raz dziennie po wejściu na daną stronę (po wyłączeniu cenzury użytkownik otrzyma cookie blokujące działanie skryptu na czas 1 doby).
 
 Skrypt powstał jako forma sprzeciwu wobec ustawy zaproponowanej przez rząd Donalda Tuska, wprowadzającej możliwość blokowania stron internetowych. Aby umożliwić szerokiej grupie osób przyłączenie się do protestu, kod źródłowy jest udostępniony na bardzo liberalnej licencji MIT. Umożliwia ona kopiowanie, redystrybucję i modyfikowanie skryptu w dowolnych celach (również komercyjnych).
 Zachęcamy wszystkie osoby, którym zależy na wolności polskiej sieci, do wzięcia udziału w naszej akcji i zamieszczenia skryptu na swojej stronie.
