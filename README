@@ -2,7 +2,7 @@ Censor
 ======
 
 I. Przeznaczenie
-Censor to prosty skrypt JS, którego celem jest modyfikacja wyglądu strony poprzez zakrycie losowych wyrazów czarnymi paskami. Dodatkowo na początek strony wstawiany jest element div z linkiem umożliwiającym użytkownikowi wyłączenie 'cenzury'. Wykonanie tej akcji może również skutkować otwarciem w oknie popup dowolnej strony (domyślnie jest to http://stop-cenzurze.pl). Domyślnie cenzura pojawi się raz dziennie po wejściu na daną stronę (po wyłączeniu cenzury użytkownik otrzyma cookie blokujące działanie skryptu na czas 1 doby).
+Censor to prosty skrypt JS, którego celem jest modyfikacja wyglądu strony poprzez zakrycie losowych wyrazów czarnymi paskami. Dodatkowo na początek strony wstawiany jest 'banner' (element div) z linkiem umożliwiającym użytkownikowi wyłączenie 'cenzury'. Wykonanie tej akcji może również skutkować otwarciem w oknie popup dowolnej strony (domyślnie jest to http://stop-cenzurze.pl). W standardowej konfiguracji, cenzura jest blokowana dla danego użytkownika na okres jednej doby od momentu kliknięcia w banner.
 
 Skrypt powstał jako forma sprzeciwu wobec ustawy zaproponowanej przez rząd Donalda Tuska, wprowadzającej możliwość blokowania stron internetowych. Aby umożliwić szerokiej grupie osób przyłączenie się do protestu, kod źródłowy jest udostępniony na bardzo liberalnej licencji MIT. Umożliwia ona kopiowanie, redystrybucję i modyfikowanie skryptu w dowolnych celach (również komercyjnych).
 Zachęcamy wszystkie osoby, którym zależy na wolności polskiej sieci, do wzięcia udziału w naszej akcji i zamieszczenia skryptu na swojej stronie.
@@ -38,12 +38,12 @@ Możliwe jest spersonalizowanie działania skryptu poprzez modyfikację zmiennyc
 Oto dostępne zmienne, wraz z opisem ich znaczenia:
 - FREQUENCY - częstotliwość występowania cenzury (prawdopodobieństwo ocenzurowania wyrazu - liczba w zakresie 0 do 1).
 - MIN_CENSORED_LENGTH - minimalna długość cenzurowanego ciągu liter
-- INFO_DIV_CUSTOM_STYLESHEET - klasa CSS, która zostanie zaaplikowana do warstwy (element div) z linkiem wyłączającym cenzurę
+- INFO_DIV_CUSTOM_STYLESHEET - klasa CSS, która zostanie zaaplikowana do bannera (element div) z linkiem wyłączającym cenzurę
 - INFO_LINK_CUSTOM_STYLESHEET - klasa CSS, która zostanie zaaplikowana do linka (element a) wyłączającego cenzurę
-- INFO_LINK_TEXT - tekst wyświetlany w linku
+- INFO_LINK_TEXT - tekst wyświetlany w linku (bannerze)
 - INFO_LINK_HREF - strona otwierana w popupie po kliknięciu w link usuwajacy cenzurę (jeśli parametr będzie pusty, nie zostanie wyświetlona żadna strona)
-- SHOW_ONCE - czy pokazać cenzurę po kolejnych wejściach na stronę (true lub false)
-- DAYS_TO_EXPIRE - jeśli parametr SHOW_ONCE ustawiony jest na true, DAYS_TO_EXPIRE określa ilość dni, po których cenzura pojawi się ponownie (jest to czas wygasania cookie blokującego cenzurę strony). Parametr ten może być ułamkiem. Przykładowo, po ustawieniu wartości 0.000694, cenzura będzie pojawiać się na stronie co 60 sekund (0.000694 to wartość, którą uzyskamy dzieląc 60 przez 86400, czyli ilość sekund w dobie).
+- SHOW_ONCE - czy pokazać cenzurę po kolejnych wejściach na stronę (true lub false). Jeśli wartość ustawiona jest na false, cenzurę można zablokować tylko poprzez kliknięcie w link w bannerze. Gdy SHOW_ONCE ustawiony jest na true, cenzura zniknie po ponownym wejściu na stronę przez użytkownika.
+- DAYS_TO_EXPIRE - wyznacza okres (w dobach) na który blokowana jest cenzura po kliknięciu w banner (jest to czas wygasania cookie blokującego cenzurę strony). Parametr ten może być ułamkiem. Przykładowo, po ustawieniu wartości 0.000694, cenzura będzie pojawiać się na stronie co 60 sekund (0.000694 to wartość, którą uzyskamy dzieląc 60 przez 86400, czyli ilość sekund w dobie).
 - CENSOR_ROOT_CLASS_FILTER - umożliwia włączenie cenzury tylko w określonych fragmentach strony. Będzie ona aktywna tylko w elementach HTML, które są posiadają rodzica z przypisaną klasa CSS określoną w parametrze CENSOR_ROOT_CLASS_FILTER.
 - CENSOR_SPAN_CLASS - klasa przypisywana do każdego 'paska' cenzury nakładanego na tekst
 - CENSOR_INFO_DIV_ID - klasa przypisywana do warstwy (div) z linkiem wyłączającym cenzurę

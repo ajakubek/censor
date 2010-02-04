@@ -171,14 +171,10 @@
 
 	function censorWindow()
 	{
+		if (readCookie(CENSOR_COOKIE_NAME))
+			return;
 		if (SHOW_ONCE)
-		{
-			if (readCookie(CENSOR_COOKIE_NAME))
-				return;
 			createCookie(CENSOR_COOKIE_NAME, true, DAYS_TO_EXPIRE);
-		}
-		else
-			eraseCookie(CENSOR_COOKIE_NAME);
 		censorDocument(window.document);
 		addInfoLayer();
 	}
@@ -206,6 +202,8 @@
 
 	function uncensorWindow()
 	{
+		if (!SHOW_ONCE)
+			createCookie(CENSOR_COOKIE_NAME, true, DAYS_TO_EXPIRE);
 		uncensorDocument(window.document);
 	}
 

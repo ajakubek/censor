@@ -12,7 +12,7 @@
 	var INFO_LINK_CUSTOM_STYLESHEET = '';
 	var INFO_LINK_TEXT = 'Strona ocenzurowana prewencyjnie. Podziękuj premierowi!';
 	var INFO_LINK_HREF = 'http://stop-cenzurze.pl/';
-	var SHOW_ONCE = true;
+	var SHOW_ONCE = false;
 	var DAYS_TO_EXPIRE = 1;
 	var CENSOR_ROOT_CLASS_FILTER = '';
 	var CENSOR_SPAN_CLASS = 'censor_js_script_span';
@@ -169,14 +169,10 @@
 
 	function censorWindow()
 	{
+		if (readCookie(CENSOR_COOKIE_NAME))
+			return;
 		if (SHOW_ONCE)
-		{
-			if (readCookie(CENSOR_COOKIE_NAME))
-				return;
 			createCookie(CENSOR_COOKIE_NAME, true, DAYS_TO_EXPIRE);
-		}
-		else
-			eraseCookie(CENSOR_COOKIE_NAME);
 		censorDocument(window.document);
 		addInfoLayer();
 	}
@@ -204,6 +200,8 @@
 
 	function uncensorWindow()
 	{
+		if (!SHOW_ONCE)
+			createCookie(CENSOR_COOKIE_NAME, true, DAYS_TO_EXPIRE);
 		uncensorDocument(window.document);
 	}
 
